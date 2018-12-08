@@ -1,20 +1,38 @@
 #include "iostream"
 #include "string"
-#include "algorithm"
-
-
+#include <algorithm>
+#include <vector>
 
 using namespace std;
+
+struct Node {
+	string name;
+	int numbers_of_instances;
+	Node(string name) {
+		this->name = name;
+		numbers_of_instances = 1;
+	}
+};
+
+
 int main() {
 
-	//1. imie nazwisko
-	string buffor;
+	//No. Surname Name
+	vector<Node> tab;
 	string str;
-	cin >> buffor >> buffor >> str;
+	while (cin >> str >> str >> str) {
+		transform(str.begin(), str.end(), str.begin(), ::toupper);
+		for (Node n : tab) {
+			if (n.name == str) {
+				n.numbers_of_instances++;
+				break;
+			}
+		}
 
-	transform(str.begin(), str.end(), str.begin(), ::toupper);
+
+
+	}
 	cout << str;
-
 
 	return 0;
 }
